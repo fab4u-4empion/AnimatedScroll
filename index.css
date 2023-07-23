@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Ubuntu:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Ubuntu:wght@300;400;500;700&display=swap');
 
 body {
     background: #e7e7e7;
@@ -20,17 +20,52 @@ body {
     position: relative;
 }
 
+.page-2 {
+    margin-top: 80%;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    width: calc(50% + min(1% * (max(var(--page-1-scroll), 30) - 30) / 100 * 50, 50%));
+    padding: 30px 71px;
+}
+
+.header__text {
+    font-size: calc(50px - min(1px * (max(var(--page-1-scroll), 30) - 30) / 100 * 20, 20px));
+    font-weight: bold;
+    color: rgba(29, 143, 124);
+    transition: color 150ms ease-in-out;
+}
+
+.header__text.black {
+    color: black;
+}
+
+.header__logo {
+    transform: rotate(min(1deg * (max(var(--page-1-scroll), 30) - 30) / 100 * 360, 360deg));
+}
+
 .page-1 {
     display: flex;
-    position: sticky;
+    position: fixed;
+    z-index: 1;
     top: 0;
-    transform: translate(0, calc(-1% * (max(var(--page-1-scroll), 30) - 30) * 100 / 30));
+    width: 100%;
+    transform: translateY(calc(max(-1% * (max(var(--page-1-scroll), 30) - 30), -100%)));
 }
 
 .page-1__left, .page-1__right {
     height: 100%;
     width: 50%;
     font-weight: lighter;
+}
+
+.page-1__left {
+    background: rgb(255, 255, 255, calc(100% - 1% * min(var(--page-1-scroll), 30) * 100 / 30));
 }
 
 .page-1__right {
